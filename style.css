@@ -68,3 +68,15 @@ body{overflow-x:hidden}
   .custom-kit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .custom-kit-option img{max-width:92px!important;height:92px!important;max-height:92px!important}
 }
+
+/* Detalhes do produto: modo de uso, tabela nutricional e advertências */
+.product-details .details-body{max-width:850px}
+.product-details .details-body ul{margin:20px 0 5px;padding-left:18px;font-size:13px;line-height:1.7}
+.product-details .details-body li{margin-bottom:6px}
+.product-details .details-body h4{margin:26px 0 0;font-size:14px;color:var(--ink)}
+.nutri-wrap{overflow-x:auto;margin:12px 0}
+.nutri-table{width:100%;max-width:560px;border-collapse:collapse;font-size:13px;color:var(--ink)}
+.nutri-table th{background:#eaf5ee;color:var(--brand-dark);font-weight:600;text-align:left;padding:9px 10px}
+.nutri-table td{border-bottom:1px solid #e9e5df;padding:8px 10px}
+.nutri-table th:not(:first-child),.nutri-table td:not(:first-child){text-align:right;white-space:nowrap}
+@media (max-width:767px){.product-details .details-body ul{font-size:12px}.nutri-table{font-size:12px}.nutri-table th,.nutri-table td{padding:7px 6px}}
