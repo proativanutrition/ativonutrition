@@ -80,3 +80,27 @@ body{overflow-x:hidden}
 .nutri-table td{border-bottom:1px solid #e9e5df;padding:8px 10px}
 .nutri-table th:not(:first-child),.nutri-table td:not(:first-child){text-align:right;white-space:nowrap}
 @media (max-width:767px){.product-details .details-body ul{font-size:12px}.nutri-table{font-size:12px}.nutri-table th,.nutri-table td{padding:7px 6px}}
+
+/* Seja nosso revendedor */
+.reseller{background:#0b3d24;color:#e6f2ea;padding:72px 0;margin-top:40px}
+.reseller-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.reseller .eyebrow{color:#9fd5b2}
+.reseller h2{color:#fff;margin-bottom:16px}
+.reseller-copy p{color:#cfe5d7}
+.reseller-benefits{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px;font-size:14px}
+.reseller-benefits li{padding-left:26px;position:relative}
+.reseller-benefits li::before{content:"";position:absolute;left:0;top:4px;width:14px;height:14px;border-radius:50%;background:#169447;box-shadow:inset 0 0 0 4px #0b3d24}
+.reseller-form{background:#fff;color:var(--ink);border-radius:20px;padding:28px;display:grid;gap:14px}
+.reseller-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.reseller-form label{display:grid;gap:6px;font-size:12px;font-weight:600;color:var(--ink)}
+.reseller-form input:not([type=checkbox]),.reseller-form select,.reseller-form textarea{width:100%;border:1px solid #dedad2;border-radius:12px;padding:11px 13px;font-size:14px;font-weight:400;color:var(--ink);background:#fff}
+.reseller-form input:focus,.reseller-form select:focus,.reseller-form textarea:focus{outline:2px solid var(--brand);border-color:var(--brand)}
+.reseller-form textarea{resize:vertical;min-height:80px}
+.reseller-form .consent{display:flex;align-items:flex-start;gap:8px;font-weight:400;color:var(--body)}
+.reseller-form .btn{justify-self:start}
+.reseller-status{font-size:13px;margin:0;min-height:1em}
+.reseller-status[data-state=ok]{color:var(--success)}
+.reseller-status[data-state=error]{color:#b42318}
+.newsletter-status{margin-top:10px}
+@media (max-width:900px){.reseller-grid{grid-template-columns:1fr;gap:32px}}
+@media (max-width:560px){.reseller{padding:48px 0}.reseller-row{grid-template-columns:1fr}.reseller-form{padding:20px}.reseller-form .btn{justify-self:stretch}}

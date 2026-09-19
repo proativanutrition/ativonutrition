@@ -628,7 +628,7 @@ Continuar lendo
 <path d="m3 6 9 7 9-7"/>
 </svg>
 <input type="email" required name="email" placeholder="Seu melhor e-mail" aria-label="Seu e-mail">
-<button aria-label="Solicitar cadastro pelo WhatsApp">
+<button aria-label="Cadastrar e-mail">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 <path d="M7 17 17 7M7 7h10v10"/>
 </svg>
@@ -641,6 +641,43 @@ Aceito receber novidades da Ativo Nutrition.
 </form>
 </section>
 </main>
+<!-- SEJA NOSSO REVENDEDOR -->
+<section class="reseller" id="revendedor" aria-labelledby="reseller-title">
+<div class="container reseller-grid">
+<div class="reseller-copy">
+<p class="eyebrow">SEJA NOSSO REVENDEDOR</p>
+<h2 id="reseller-title">Leve a Ativo Nutrition para seus clientes.</h2>
+<p>Tem loja de suplementos, farmácia, academia ou vende online? Cadastre-se e nossa equipe entra em contato com a tabela de revenda, condições de compra e materiais de divulgação.</p>
+<ul class="reseller-benefits">
+<li>Preços especiais para revenda</li>
+<li>Linha completa: vitaminas, performance, beauty e kits</li>
+<li>Atendimento direto com a marca</li>
+</ul>
+</div>
+<form id="reseller-form" class="reseller-form" novalidate>
+<div class="reseller-row">
+<label>Nome completo*<input name="nome" required minlength="2" maxlength="120" autocomplete="name"></label>
+<label>WhatsApp*<input name="whatsapp" required inputmode="tel" minlength="10" maxlength="20" placeholder="(00) 00000-0000" autocomplete="tel"></label>
+</div>
+<div class="reseller-row">
+<label>E-mail<input name="email" type="email" maxlength="160" autocomplete="email"></label>
+<label>Empresa<input name="empresa" maxlength="120" autocomplete="organization"></label>
+</div>
+<div class="reseller-row">
+<label>CNPJ ou CPF<input name="documento" inputmode="numeric" maxlength="20"></label>
+<label>Tipo de negócio<select name="tipo"><option value="">Selecione</option><option>Loja de suplementos</option><option>Farmácia</option><option>Academia / estúdio</option><option>Profissional de saúde</option><option>Revenda online / marketplace</option><option>Outro</option></select></label>
+</div>
+<div class="reseller-row">
+<label>Cidade<input name="cidade" maxlength="80" autocomplete="address-level2"></label>
+<label>Estado<select name="estado"><option value="">UF</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></label>
+</div>
+<label>Mensagem<textarea name="mensagem" rows="3" maxlength="1000" placeholder="Conte um pouco sobre seu negócio"></textarea></label>
+<label class="consent"><input type="checkbox" name="consent" required> Autorizo a Ativo Nutrition a entrar em contato sobre revenda.</label>
+<button class="btn" type="submit">Quero ser revendedor</button>
+<p class="reseller-status" role="status" aria-live="polite"></p>
+</form>
+</div>
+</section>
 <!-- RODAPÉ -->
 <footer>
 <div class="container footer-grid">
@@ -668,6 +705,7 @@ Aceito receber novidades da Ativo Nutrition.
 <h3>A Ativo Nutrition</h3>
 <a href="#/sobre">Quem somos</a>
 <a href="#/blog">Diário Ativo</a>
+<a href="#revendedor">Seja nosso revendedor</a>
 <a href="#/profissionais">Profissionais e lojistas</a>
 <a href="#/rastrear">Consultar pedido</a>
 </div>
@@ -744,14 +782,14 @@ alimentação equilibrada nem a orientação de um profissional de saúde.
 FOTOS: imageFiles lista a foto nova primeiro e as alternativas depois.
 Instagram, WhatsApp, descontos e campanha: edite store. */
 window.ATIVO_DATA = {
-store: {"name":"Ativo Nutrition","whatsapp":"5511944790540","instagram":"proativonutrition","demo":false,"pixDiscount":0.03,"installments":6,"kitDiscount":0.1,"coupon":{"code":"ATIVO10","discount":0.1,"enabled":true},"couponStacksWithPix":true,"campaignEnd":"","freeShippingFrom":199,"siteUrl":"https://proativanutrition.github.io/ativonutrition","logo":"images/logo-ativo.svg","socialImage":"images/banner-cupom-desktop.webp","legalName":"GRUPO ATIVO LTDA","cnpj":"49.770.963/0001-63","address":"","privacyEmail":"mercadonutrition@gmail.com","supportEmail":"mercadonutrition@gmail.com","announcementMessages":["Sua evolução começa aqui.","{pix}% OFF no Pix ou {parcelas}x sem juros","Frete grátis acima de {frete} após descontos","Fale com a Ativo Nutrition pelo WhatsApp"]},
+store: {"name":"Ativo Nutrition","whatsapp":"5511944790540","instagram":"proativonutrition","demo":false,"pixDiscount":0.03,"installments":6,"kitDiscount":0.1,"coupon":{"code":"ATIVO10","discount":0.1,"enabled":true},"couponStacksWithPix":true,"campaignEnd":"","freeShippingFrom":199,"siteUrl":"https://proativanutrition.github.io/ativonutrition","logo":"images/logo-ativo.svg","socialImage":"images/banner-cupom-desktop.webp","legalName":"GRUPO ATIVO LTDA","cnpj":"49.770.963/0001-63","address":"Rua Epaminondas Pereira Nunes, Centro, São Pedro da Aldeia - RJ, CEP 28941-140","supabaseUrl":"https://glhmczockgbtlsbavqas.supabase.co","supabaseKey":"sb_publishable_fmy6avSGEOuu1so1Vu8Ung_R4GiCmg4","privacyEmail":"mercadonutrition@gmail.com","supportEmail":"mercadonutrition@gmail.com","announcementMessages":["Sua evolução começa aqui.","{pix}% OFF no Pix ou {parcelas}x sem juros","Frete grátis acima de {frete} após descontos","Fale com a Ativo Nutrition pelo WhatsApp"]},
 /* DADOS LEGAIS: preencher store.legalName, store.cnpj e store.address (aparecem no rodapé quando preenchidos). */
 categories: ["Todos","NAC e antioxidantes","Vitaminas e minerais","Performance","Beauty","Equilíbrio e bem-estar","Kits"],
 objectives: [{"id":"energia-treino","name":"Energia e treino"},{"id":"pele-cabelo","name":"Pele e cabelo"},{"id":"imunidade","name":"Imunidade"},{"id":"bem-estar-diario","name":"Bem-estar diário"}],
 /* PREÇOS definidos com base em pesquisa de mercado (set/2026). Edite "price" para alterar. */
 products: [
-{"id":"ativo-alpha","name":"Ativo Alpha","category":"Performance","format":"cápsulas","price":59.9,"description":"Suplemento alimentar masculino em cápsulas da linha Ativo Nutrition, pensado para a rotina de quem busca energia, performance e vitalidade. Frasco com 60 cápsulas. Consulte a composição completa no rótulo.","imageFiles":["ativo-alpha.webp"],"quantity":"60 cápsulas","featured":true,"tags":["energia-treino","bem-estar-diario"],"new":true},
-{"id":"ativo-femme","name":"Ativo Femme","category":"Equilíbrio e bem-estar","format":"cápsulas","price":54.9,"description":"Suplemento alimentar feminino em cápsulas da linha Ativo Nutrition, pensado para acompanhar a rotina com energia, equilíbrio e vitalidade. Frasco com 60 cápsulas. Consulte a composição completa no rótulo.","imageFiles":["ativo-femme.webp"],"quantity":"60 cápsulas","featured":true,"tags":["bem-estar-diario"],"new":true},
+{"id":"ativo-alpha","name":"Ativo Alpha","category":"Performance","format":"cápsulas","price":59.9,"description":"Suplemento alimentar masculino em cápsulas da linha Ativo Nutrition, pensado para a rotina de quem busca energia, performance e vitalidade. Frasco com 60 cápsulas.","imageFiles":["ativo-alpha.webp"],"quantity":"60 cápsulas","featured":true,"tags":["energia-treino","bem-estar-diario"],"new":true},
+{"id":"ativo-femme","name":"Ativo Femme","category":"Equilíbrio e bem-estar","format":"cápsulas","price":54.9,"description":"Suplemento alimentar feminino em cápsulas da linha Ativo Nutrition, pensado para acompanhar a rotina com energia, equilíbrio e vitalidade. Frasco com 60 cápsulas.","imageFiles":["ativo-femme.webp"],"quantity":"60 cápsulas","featured":true,"tags":["bem-estar-diario"],"new":true},
 {"id":"creatina","name":"Creatina Monohidratada","category":"Performance","format":"pó","price":59.9,"description":"Creatina monohidratada em pó, pote de 300 g. A creatina auxilia no aumento da performance física durante exercícios repetidos de curta duração e alta intensidade, quando associada à prática de exercícios.","images":["images/creatina.webp"],"quantity":"300 g","featured":true,"tags":["energia-treino"],"new":false},
 {"id":"triplo-magnesio","name":"Triplo Magnésio 600 mg","category":"Vitaminas e minerais","price":47.9,"description":"Três fontes de magnésio em uma única fórmula, 600 mg. O magnésio auxilia no funcionamento muscular e no metabolismo energético. Vegano, zero açúcares e sem glúten. 60 cápsulas.","imageFiles":["triplo-magnesio.webp"],"featured":true,"tags":["bem-estar-diario"],"new":false},
 {"id":"nac-600mg","name":"NAC 600 mg","category":"NAC e antioxidantes","price":44.9,"description":"N-Acetilcisteína (NAC) 600 mg em cápsulas, para incluir na sua rotina de suplementação. Vegano, zero açúcares e sem glúten. 60 cápsulas.","imageFiles":["nac-600mg.webp"],"featured":true,"tags":["imunidade","bem-estar-diario"],"new":false},
@@ -776,7 +814,7 @@ products: [
 {"id":"nac-vitamina-c","name":"NAC + Vitamina C","category":"NAC e antioxidantes","imageFiles":["nac-vitamina-c.webp"],"tags":["imunidade","bem-estar-diario"],"price":49.9,"description":"NAC + Vitamina C, 600 mg, dois ativos em uma cápsula. A vitamina C auxilia na proteção dos danos causados pelos radicais livres. 60 cápsulas."},
 {"id":"resveratrol","name":"Resveratrol","category":"NAC e antioxidantes","imageFiles":["resveratrol.webp"],"tags":["bem-estar-diario"],"price":79.9,"description":"Resveratrol 165 mg em cápsulas, para a sua rotina de antioxidantes. Vegano, zero açúcares e sem glúten. 60 cápsulas."},
 {"id":"astaxantina","name":"Astaxantina","category":"NAC e antioxidantes","imageFiles":["astaxantina.webp"],"tags":["pele-cabelo","bem-estar-diario"],"price":89.9,"description":"Astaxantina 4 mg em cápsulas, carotenoide para a sua rotina de cuidados. Vegano, zero açúcares e sem glúten. 60 cápsulas."},
-{"id":"multivitaminico-minerais","name":"Multivitamínico + Minerais","category":"Equilíbrio e bem-estar","imageFiles":["multivitaminico-minerais.webp"],"tags":["imunidade","bem-estar-diario"],"price":44.9,"description":"Vitaminas e minerais em uma fórmula completa: vitamina C, D3, zinco, selênio, iodo, magnésio e complexo B, entre outros. Consulte as quantidades no rótulo. 60 cápsulas."},
+{"id":"multivitaminico-minerais","name":"Multivitamínico + Minerais","category":"Equilíbrio e bem-estar","imageFiles":["multivitaminico-minerais.webp"],"tags":["imunidade","bem-estar-diario"],"price":44.9,"description":"Vitaminas e minerais em uma fórmula completa: vitamina C, D3, zinco, selênio, iodo, magnésio e complexo B, entre outros. 60 cápsulas."},
 {"id":"omega-3","name":"Ômega 3","category":"Equilíbrio e bem-estar","imageFiles":["omega-3.webp"],"tags":["bem-estar-diario"],"price":39.9,"description":"Ômega 3 com 540 mg de EPA + 360 mg de DHA por porção. O EPA e o DHA auxiliam na manutenção de níveis saudáveis de triglicerídeos, quando associados a uma alimentação equilibrada. 60 cápsulas."},
 {"id":"kit-casal-alpha-femme","name":"Kit Casal Ativo — Alpha + Femme","category":"Kits","format":"kit","kit":true,"components":["ativo-alpha","ativo-femme"],"imageFiles":["kit-casal-alpha-femme.webp"],"description":"Kit casal com Ativo Alpha + Ativo Femme, 60 cápsulas em cada produto.","quantity":"2 unidades","tags":["energia-treino","bem-estar-diario"],"new":true},
 {"id":"kit-rotina-essencial","name":"Kit Rotina Essencial","category":"Kits","format":"kit","kit":true,"components":["triplo-magnesio","nac-600mg"],"tags":["bem-estar-diario","imunidade"],"new":false},
@@ -901,6 +939,8 @@ void F("Diário Ativo");const t=a.find(t=>t.slug===e)
 F(t.title,t.body[0])):oe()}function oe(){
 E.innerHTML=' <section class="section container narrow"> <h1>Página não encontrada.</h1> <p>Continue explorando a linha Ativo Nutrition.</p> <a class="btn" href="#/produtos">Ver produtos →</a> </section> ',
 F("Página não encontrada")}function renderCustomKit(t){M=t;customKitSelected=[];const max=t.maxItems||3,available=i.filter(p=>!p.kit&&p.status!=="em-breve"&&Number.isFinite(p.price));E.innerHTML=`<section class="section container"><p class="breadcrumbs"><a href="#/">Início</a> / <a href="#/produtos?categoria=Kits">Kits</a> / ${u(t.name)}</p><div class="section-heading"><div><p class="eyebrow">MONTE DO SEU JEITO</p><h1>${u(t.name)}</h1><p>Escolha exatamente ${max} produtos disponíveis. O site soma os valores e aplica ${Math.round(e.kitDiscount*100)}% de desconto no kit.</p></div></div><div class="custom-kit-builder"><div class="custom-kit-steps"><div class="custom-kit-step"><strong>1. Escolha</strong><p>Selecione ${max} produtos abaixo.</p></div><div class="custom-kit-step"><strong>2. Confira</strong><p>Veja os itens e o desconto calculado.</p></div><div class="custom-kit-step"><strong>3. Adicione</strong><p>Confirme para levar o kit ao carrinho.</p></div></div><div class="custom-kit-grid">${available.map(p=>`<button type="button" class="custom-kit-option" data-custom-kit-toggle="${u(p.id)}"><img src="${u(p.images[0])}" alt="${u(p.name)}" loading="lazy" width="800" height="800"><span><strong>${u(p.name)}</strong><small>${m(p.price)}</small></span></button>`).join("")}</div><div class="custom-kit-summary"><div class="custom-kit-summary-row"><strong>Selecionados</strong><span id="custom-kit-count">0/${max}</span></div><div id="custom-kit-items" class="small-note">Escolha ${max} produtos.</div><div class="custom-kit-summary-row"><span>Somatório</span><del id="custom-kit-old">—</del></div><div class="custom-kit-summary-row"><strong>Kit com ${Math.round(e.kitDiscount*100)}% OFF</strong><strong id="custom-kit-total">—</strong></div><button type="button" class="btn" data-action="add-custom-kit" disabled>Adicionar kit ao carrinho${O("bag",18)}</button></div></div></section>`;updateCustomKitUI();F(t.name,"Monte seu Kit Seleção Ativo escolhendo 3 produtos.")}
+async function saveLead(table,data,dupOk){try{if(!e.supabaseUrl||!e.supabaseKey)return!1;const r=await fetch(e.supabaseUrl.replace(/\/$/,"")+"/rest/v1/"+table,{method:"POST",headers:{apikey:e.supabaseKey,"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify(data)});return r.ok||dupOk&&409===r.status}catch(err){return!1}}
+document.addEventListener("submit",async ev=>{const f=ev.target;if("reseller-form"!==f.id)return;ev.preventDefault();const st=f.querySelector(".reseller-status"),el=f.elements,wa=el.whatsapp.value.replace(/\D/g,"");if(!f.checkValidity()||wa.length<10){st.textContent=wa.length<10&&el.whatsapp.value?"Informe um WhatsApp com DDD.":"Preencha nome, WhatsApp e autorize o contato.";st.dataset.state="error";f.reportValidity();return}const data={nome:el.nome.value.trim(),whatsapp:el.whatsapp.value.trim(),email:el.email.value.trim()||null,empresa:el.empresa.value.trim()||null,documento:el.documento.value.trim()||null,tipo:el.tipo.value||null,cidade:el.cidade.value.trim()||null,estado:el.estado.value||null,mensagem:el.mensagem.value.trim()||null};const b=f.querySelector("button[type=submit]");b.disabled=!0;st.dataset.state="";st.textContent="Enviando…";const ok=await saveLead("revendedores",data);b.disabled=!1;if(ok){f.reset();st.dataset.state="ok";st.innerHTML=`Cadastro recebido! Nossa equipe vai falar com você pelo WhatsApp em breve. <a class="text-link" href="${g("Olá! Acabei de me cadastrar como revendedor no site: "+data.nome+(data.empresa?" ("+data.empresa+")":"")+".")}" target="_blank" rel="noopener noreferrer">Falar agora</a>`}else{st.dataset.state="error";st.innerHTML=`Não foi possível enviar agora. <a class="text-link" href="${g("Olá! Quero ser revendedor da Ativo Nutrition. Sou "+data.nome+".")}" target="_blank" rel="noopener noreferrer">Fale com a gente pelo WhatsApp</a>`}});
 function pdpSections(t){const RT=window.ATIVO_ROTULOS||{},NOTE='<p class="small-note">*% Valores Diários de referência com base na IN 28/2018 da Anvisa (adultos). ** VD não estabelecido.</p>',tb=r=>`<p><strong>Porção:</strong> ${u(r.porcao)}</p><div class="nutri-wrap"><table class="nutri-table"><thead><tr><th>Nutriente</th><th>Por porção</th><th>%VD*</th></tr></thead><tbody>${r.tabela.map(([n,q,v])=>`<tr><td>${u(n)}</td><td>${u(q)}</td><td>${u(v)}</td></tr>`).join("")}</tbody></table></div><p><strong>Ingredientes:</strong> ${u(r.ingredientes)}</p>`;if(t.kit){const c=(t.components||[]).map(h).filter(Boolean),rs=c.map(x=>[x,RT[x.id]]).filter(x=>x[1]),adv=[...new Set(rs.flatMap(([,r])=>r.advertencias.split(/(?<=\.)\s+/)))];return[["Sobre o produto",`${/^Inclui /.test(t.description)?"":`<p>${u(t.description)}</p>`}<p>Este kit reúne: ${c.map(x=>`<a class="text-link" href="#/produto/${u(x.slug)}">${u(x.name)}</a>`).join(", ")}.</p>`],["Como consumir",`<ul>${rs.map(([x,r])=>`<li><strong>${u(x.name)}:</strong> ${u(r.uso)}</li>`).join("")}</ul>`],["Ingredientes e tabela nutricional",rs.map(([x,r])=>`<h4>${u(x.name)}</h4>${tb(r)}`).join("")+NOTE],["Advertências",`<p>${u(adv.join(" "))}</p>`]]}const r=RT[t.id],o=[["Sobre o produto",`<p>${u(t.description)}</p>`]];r&&o.push(["Como consumir",`<p>${u(r.uso)}</p>`],["Ingredientes e tabela nutricional",tb(r)+NOTE],["Advertências",`<p>${u(r.advertencias)}</p>`]);return o}
 function updateCustomKitUI(){const kit=h(CUSTOM_KIT_ID);if(!kit||!d("#custom-kit-count"))return;const max=kit.maxItems||3;p("[data-custom-kit-toggle]").forEach(btn=>btn.classList.toggle("is-selected",customKitSelected.includes(btn.dataset.customKitToggle)));d("#custom-kit-count").textContent=`${customKitSelected.length}/${max}`;const parts=customKitSelected.map(h).filter(Boolean),old=l(parts.reduce((s,p)=>s+p.price,0)),total=l(old*(1-e.kitDiscount));d("#custom-kit-items").textContent=parts.length?parts.map(p=>p.name).join(" • "):`Escolha ${max} produtos.`;d("#custom-kit-old").textContent=parts.length?m(old):"—";d("#custom-kit-total").textContent=parts.length===max?m(total):"—";d('[data-action="add-custom-kit"]').disabled=customKitSelected.length!==max}
 function ne(e=!1){if(location.hash&&!location.hash.startsWith("#/"))return;M=null;const{path:t,params:a}=X()
@@ -970,7 +1010,7 @@ location.hash="/produtos"+(t.size?"?"+t.toString():"")}"format-filter"===e.targe
 const e=a.elements.cep.value.replace(/\D/g,""),t=Number(d('[data-quantity="pdp"]').textContent)
 ;return void(d("#shipping-result").innerHTML=8===e.length?` <p class="small-note"> CEP válido. Solicite a cotação pelo WhatsApp. </p> <a class="text-link" href="${g(`Olá! Pode cotar frete para ${M.name}, ${t} unidade(s), CEP ${e}?`)}" target="_blank" rel="noopener noreferrer" >Solicitar cotação${O("arrow",15)}</a> `:'<p class="small-note">Informe um CEP com 8 números.</p>')
 }
-let o="";if("newsletter-form"===a.id){if(!a.checkValidity())return;o=`Quero receber novidades, meu e-mail é ${a.elements.email.value}`}
+let o="";if("newsletter-form"===a.id){if(!a.checkValidity())return void a.reportValidity();const btn=a.querySelector("button");btn.disabled=!0;const ok=await saveLead("newsletter",{email:a.elements.email.value.trim().toLowerCase()},!0);btn.disabled=!1;let msg=a.querySelector(".newsletter-status");msg||(msg=document.createElement("p"),msg.className="newsletter-status small-note",msg.setAttribute("role","status"),a.appendChild(msg));msg.textContent=ok?"Pronto! Você vai receber as novidades da Ativo.":"Não foi possível cadastrar agora. Tente novamente.";ok&&a.reset();return}
 "professionals-form"===a.id&&(o=`Olá! Sou ${a.elements.name.value}, ${a.elements.role.value}. ${a.elements.message.value}`),
 "tracking-form"===a.id&&(o=`Olá! Quero consultar o pedido ${a.elements.order.value}. Podem informar o rastreio?`),
 window.open(g(o),"_blank","noopener,noreferrer")}),window.addEventListener("resize",()=>{p(".carousel-viewport").forEach(e=>{
