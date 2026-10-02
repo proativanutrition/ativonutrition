@@ -99,7 +99,7 @@ PAGE = """<!DOCTYPE html>
 <p class="price">{price}</p>
 {pixline}
 <p class="desc">{desc}</p>
-<a class="btn" href="./#/produto/{id}">Comprar no site</a>
+<a class="btn" href="{buy}" rel="nofollow">COMPRAR AGORA</a>
 <p class="small-note" style="margin-top:16px">Frete grátis acima de {frete} · Atendimento pelo <a href="https://wa.me/{whats}" rel="noopener">WhatsApp</a></p>
 </div>
 </main>
@@ -130,7 +130,7 @@ for p in products:
         category=esc(p.get("category", "")), qty=f'<p class="quantity">{esc(qty)}</p>' if qty else "",
         price=brl(pr) if pr is not None else "Monte o seu kit", price_raw=f"{pr:.2f}" if pr is not None else "",
         pixline=f'<p class="pix">{brl(round(pr*(1-pix),2))} no Pix ou {store["installments"]}x sem juros</p>' if pr else "",
-        frete=brl(store["freeShippingFrom"]), whats=store["whatsapp"], others=others,
+        frete=brl(store["freeShippingFrom"]), buy=(store["checkoutUrl"]+store["checkoutTokens"][p["id"]]+":1") if (store.get("checkoutEnabled") and p["id"] in store.get("checkoutTokens",{})) else f"./#/produto/{p['id']}", whats=store["whatsapp"], others=others,
         schema=json.dumps(schema, ensure_ascii=False), crumbs=json.dumps(crumbs, ensure_ascii=False))
     out = ROOT / f"{p['id']}.html"
     out.write_text(page, encoding="utf-8")
