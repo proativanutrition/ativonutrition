@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://proativanutrition.github.io/ativonutrition/sitemap.xml
