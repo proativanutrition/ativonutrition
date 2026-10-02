@@ -15,6 +15,12 @@ block = src[src.index("products: [") : src.index("].map(p => ({")]
 products = [json.loads(l.rstrip().rstrip(",")) for l in block.splitlines() if l.startswith('{"id"')]
 byid = {p["id"]: p for p in products}
 kit_off = store.get("kitDiscount", 0.1)
+# Rótulos (modo de uso, ingredientes, advertências, FAQ) definidos em window.ATIVO_ROTULOS no index.html
+rotulos = json.loads(re.search(r"^window\.ATIVO_ROTULOS = (\{.*\});?\s*$", src, re.M).group(1))
+for k, v in re.findall(r'^window\.ATIVO_ROTULOS\["([^"]+)"\] = (\{.*\});\s*$', src, re.M):
+    rotulos[k] = json.loads(v)
+# Produtos que mostram a seção "Avaliações de clientes" (avaliacoes.js + avaliacoes/avaliacoes.json)
+COM_AVALIACOES = lambda pid: "drenalinf" in pid
 pix = store.get("pixDiscount", 0.03)
 today = datetime.date.today().isoformat()
 esc = lambda s: html.escape(str(s), quote=True)
@@ -70,7 +76,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#169447">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">{extra_head}
 <script type="application/ld+json">{schema}</script>
 <script type="application/ld+json">{crumbs}</script>
 <style>
@@ -102,11 +108,40 @@ PAGE = """<!DOCTYPE html>
 <a class="btn" href="{buy}" rel="nofollow">COMPRAR AGORA</a>
 <p class="small-note" style="margin-top:16px">Frete grátis acima de {frete} · Atendimento pelo <a href="https://wa.me/{whats}" rel="noopener">WhatsApp</a></p>
 </div>
-</main>
+</main>{extra}
 <section class="container seo-list"><h2>Veja também</h2><ul>{others}</ul></section>
 </body>
 </html>
 """
+
+def rotulo_completo(p):
+    """Rótulo com FAQ do produto (ou do único produto de um kit). Só esses ganham a seção de informações."""
+    ids = list(dict.fromkeys(p.get("components", []))) if p.get("kit") else [p["id"]]
+    if len(ids) == 1 and rotulos.get(ids[0], {}).get("faq"):
+        return rotulos[ids[0]]
+    return None
+
+
+def extras(p):
+    r, head, body = rotulo_completo(p), "", ""
+    if r:
+        faq = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in r["faq"])
+        badges = "".join(f"<li>{esc(d)}</li>" for d in r.get("destaques", []))
+        body += ('\n<section class="container product-details seo-info">'
+                 f'<details open><summary>Modo de uso</summary><p>{esc(r["uso"])}</p></details>'
+                 f'<details open><summary>Ingredientes</summary><p>{esc(r["ingredientes"])}</p>'
+                 + (f'<ul class="pdp-badges">{badges}</ul>' if badges else "") + '</details>'
+                 f'<details><summary>Advertências</summary><p>{esc(r["advertencias"])}</p></details>'
+                 f'<h2 class="seo-faq-title">Perguntas frequentes</h2><div class="seo-faq">{faq}</div></section>')
+        faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in r["faq"]]}
+        head += f'\n<script type="application/ld+json">{json.dumps(faq_schema, ensure_ascii=False)}</script>'
+        head += '\n<style>.seo-info{padding-bottom:8px}.seo-info details p{font-size:14px}.seo-faq-title{font-size:24px;margin:40px 0 4px}.seo-faq details{border-bottom:1px solid #e9e5df;padding:16px 0}</style>'
+    if COM_AVALIACOES(p["id"]):
+        body += '\n<section class="container" data-avaliacoes></section>'
+        head += '\n<script src="avaliacoes.js" defer></script>'
+    return head, body
+
 
 urls = [(f"{SITE}/", "1.0")]
 for p in products:
@@ -125,7 +160,8 @@ for p in products:
         {"@type": "ListItem", "position": 3, "name": name, "item": url}]}
     others = "".join(f'<li><a href="{o["id"]}.html">{esc(o["name"])}</a></li>' for o in products if o is not p)
     qty = p.get("quantity") or ("" if p.get("kit") else "")
-    page = PAGE.format(
+    extra_head, extra = extras(p)
+    page = PAGE.format(extra_head=extra_head, extra=extra,
         title=esc(f"{name} | Ativo Nutrition"), desc=esc(desc[:300]), url=url, img=img, name=esc(name), id=p["id"],
         category=esc(p.get("category", "")), qty=f'<p class="quantity">{esc(qty)}</p>' if qty else "",
         price=brl(pr) if pr is not None else "Monte o seu kit", price_raw=f"{pr:.2f}" if pr is not None else "",
