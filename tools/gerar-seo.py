@@ -155,7 +155,7 @@ for p in products:
     if pr is not None:
         offer["price"] = f"{pr:.2f}"
     schema = {"@context": "https://schema.org", "@type": "Product", "name": name, "description": desc, "image": [img],
-              "sku": p["id"], "brand": {"@type": "Brand", "name": "Ativo Nutrition"}, "category": p.get("category"), "offers": offer}
+              "sku": p["id"], "brand": {"@type": "Brand", "name": p.get("brand", "Ativo Nutrition")}, "category": p.get("category"), "offers": offer}
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Início", "item": f"{SITE}/"},
         {"@type": "ListItem", "position": 2, "name": p.get("category", "Produtos"), "item": f"{SITE}/#/produtos"},
